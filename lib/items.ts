@@ -1,25 +1,14 @@
 import { Item, PlayedItem } from "../types/item";
-import { createWikimediaImage } from "./image";
 
 export function getRandomItem(deck: Item[], played: Item[]): Item {
-  const periods: [number, number][] = [
-    [-100000, 1000],
-    [1000, 1800],
-    [1800, 2020],
-  ];
-  const [fromYear, toYear] =
-    periods[Math.floor(Math.random() * periods.length)];
-  const avoidPeople = Math.random() > 0.5;
+
   const candidates = deck.filter((candidate) => {
-    if (avoidPeople && candidate.instance_of.includes("human")) {
-      return false;
+    for (const playedItem of played) {
+      if (playedItem.id === candidate.id) {
+        return false;
+      }
     }
-    if (candidate.year < fromYear || candidate.year > toYear) {
-      return false;
-    }
-    if (tooClose(candidate, played)) {
-      return false;
-    }
+
     return true;
   });
 
@@ -56,6 +45,6 @@ export function checkCorrect(
 
 export function preloadImage(url: string): HTMLImageElement {
   const img = new Image();
-  img.src = createWikimediaImage(url);
+  img.src = url;
   return img;
 }

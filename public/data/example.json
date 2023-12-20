@@ -1,0 +1,2 @@
+{"date_prop_id": "P569", "description": "Example", "wikipedia_title": "Example", "id": "P1", "image": "/images/example.jpeg", "year": 2000, "instance_of": ["example"], "label": "Example", "num_sitelinks": 3, "occupations": null, "page_views": 1}
+{"date_prop_id": "P569", "description": "Example 2", "wikipedia_title": "Example 2", "id": "P2", "image": "/images/example.jpeg", "year": 2000, "instance_of": ["example"], "label": "Example 2", "num_sitelinks": 3, "occupations": null, "page_views": 1}
